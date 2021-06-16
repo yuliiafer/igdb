@@ -3,6 +3,7 @@ import logo from "../assets/icon.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/links";
+import CartIcons from "../components/CartIcons";
 
 const NavBarLayout = () => {
   return (
@@ -26,6 +27,7 @@ const NavBarLayout = () => {
                         </li>
             })}
         </ul>
+        <CartIcons />
       </div>
     </NavContainer>
   );
@@ -76,8 +78,9 @@ const NavContainer = styled.nav`
       }
       .nav__center {
           display: grid;
-          grid-template-column: auto 1fr auto;
+          grid-template-columns: auto 1fr auto;
           align-items: center;
+          -webkit-align-items: center;
       }
 
       .nav__links {
@@ -100,6 +103,9 @@ const NavContainer = styled.nav`
               }
           }
       }
+      .cart-btn-wrapper {
+        display: grid;
+    }
   }
 `;
 
