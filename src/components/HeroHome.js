@@ -60,6 +60,7 @@ const Wrapper = styled.section`
   }
   h1 {
     margin-bottom: 2rem;
+    margin-top: 4rem;
     font-size: 1.8rem;
   }
   @media (min-width: 992px) {
