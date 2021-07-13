@@ -8,30 +8,44 @@ import {
   Error,
   Checkout,
   PrivateRoute,
+  AuthWrapper
 } from "./pages";
 import { NavBar, SideBar, Footer } from "./layout";
-import "./App.css";
-import styled from "styled-components";
 
 const App = () => {
   return (
-    <>
+    <AuthWrapper>
       <Router>
         <NavBar />
         <SideBar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/products" component={Products} />
-          <Route path="/products/:id" component={SingleProduct} />
-          <Route path="/cart" component={Cart} />
-          <Route path="*" component={Error} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/private-route" component={PrivateRoute} />
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <PrivateRoute exact path="/products">
+            <Products />
+          </PrivateRoute>
+          <PrivateRoute
+            exact
+            path="/products/:id"
+            children={<SingleProduct />}
+          />
+          <PrivateRoute exact path="/checkout">
+            <Checkout />
+          </PrivateRoute>
+          <Route path="*">
+            <Error />
+          </Route>
         </Switch>
         <Footer />
       </Router>
-    </>
+    </AuthWrapper>
   );
 };
 

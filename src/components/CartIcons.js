@@ -1,19 +1,40 @@
 import { Link } from "react-router-dom";
-import { FaShoppingBasket, FaUserPlus, FaUserMinus } from "react-icons/fa";
+import { GiShoppingBag } from "react-icons/gi";
+import { ImUserMinus, ImUserPlus } from "react-icons/im";
 import styled from "styled-components";
+import { useProductsContext } from "../context/products_context";
+import { useCartContext } from "../context/cart_context";
+import { useUserContext } from "../context/user_context";
 
 const CartIcons = () => {
+  const { closeSidebar } = useProductsContext();
+  const { total_items, clearCart } = useCartContext();
+  const { loginWithRedirect, myUser, logout } = useUserContext();
   return (
     <Wrapper className="cart-btn-wrapper">
-      <Link to="/cart" className="cart__btn">
-        <span className="cart__container">
-          <FaShoppingBasket />
-          <span className="cart__value">0</span>
+      <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
+        <span className="cart-container">
+          <GiShoppingBag />
+          <span className="cart-value">{total_items}</span>
         </span>
       </Link>
-      <button type="button" className="login__btn">
-        <FaUserPlus />
-      </button>
+      {myUser ? (
+        <button
+          type="button"
+          className="auth-btn"
+          onClick={() => {
+            clearCart();
+            localStorage.removeItem("user");
+            logout({ returnTo: window.location.origin });
+          }}
+        >
+          <ImUserMinus />
+        </button>
+      ) : (
+        <button type="button" className="auth-btn" onClick={loginWithRedirect}>
+          <ImUserPlus />
+        </button>
+      )}
     </Wrapper>
   );
 };
@@ -21,54 +42,67 @@ const CartIcons = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
   width: 225px;
-
-  .cart__btn {
-    color: var(--clr-grey-1);
+  align-items: center;
+  .cart-btn {
+    color: var(--clr-grey-5);
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-
-    .cart__container {
+    justify-content: center; 
+    .cart-container {
       display: flex;
       align-items: center;
       position: relative;
-
+      justify-content: center; 
       svg {
         height: 1.6rem;
         margin-left: 5px;
       }
-
-      .cart__value {
+      .cart-value {
         display: flex;
         align-items: center;
         position: absolute;
-        top: -10px;
-        right: -16px;
-        background: var(--clr-primary-5);
-        color: var(--clr-white);
-        width: 16px;
-        height: 16px;
+        top: -5px;
+        right: -18px;
+        background: var(--clr-primary-9);
+        color: var(--clr-primary-4);
         border-radius: 50%;
         font-size: 0.75rem;
-        padding: 12px;
+        padding: 2px;
       }
     }
   }
-
-  .login__btn {
+  .auth-btn {
     display: flex;
     align-items: center;
     background: transparent;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-
+    color: var(--clr-grey-5);
+    justify-content: center; 
     svg {
-        margin-left: 5px;
+      margin-left: 5px;
     }
-}
+  }
+  @media (max-width: 550px) {
+    width: 100px;
+    .cart-btn {
+      .cart-container {
+        .cart-value {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          top: -5px;
+          right: -12px;
+          background: var(--clr-primary-9);
+          color: var(--clr-primary-4);
+          border-radius: 50%;
+          font-size: 0.55rem;
+          padding: 2px;
+        }
+  }
 `;
 
 export default CartIcons;

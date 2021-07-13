@@ -7,7 +7,8 @@ const FooterLayout = () => {
         &copy; {new Date().getFullYear()}
         <span>Bits & Bots</span>
       </h6>
-      <h6>All rights reserved</h6>
+      <h6>API and games info:</h6>
+      <span>https://www.igdb.com</span>
     </Wrapper>
   );
 };

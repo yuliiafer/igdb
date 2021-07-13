@@ -1,33 +1,48 @@
 import styled from "styled-components";
-import logo from "../assets/icon.png";
+import logo from "../assets/logobb.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/links";
 import CartIcons from "../components/CartIcons";
+import { useProductsContext } from "../context/products_context";
+import { useUserContext } from "../context/user_context";
 
 const NavBarLayout = () => {
+  const { openSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
+
   return (
     <NavContainer>
-      <div className="nav__center">
-        <div className="nav__header">
+      <div className="nav-center">
+        <div className="nav-header">
           <Link to="/">
             <img src={logo} alt="bits and bots" />
           </Link>
-          <button type="button" className="nav__toggle">
+          <CartIcons />
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars size="1.5em" />
           </button>
         </div>
-        <ul className="nav__links">
-            {links.map((link) => {
-                const {id, text, url} = link;
-                return <li key={id}>
-                            <Link to={url}>
-                                {text}
-                            </Link>
-                        </li>
-            })}
+        <ul className="nav-links">
+          {links.map((link) => {
+            const { id, text, url } = link;
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            );
+          })}
+          {myUser && (
+            <>
+              <li>
+                <Link to="/products">games</Link>
+              </li>
+              <li>
+                <Link to="/checkout">checkout</Link>
+              </li>
+            </>
+          )}
         </ul>
-        <CartIcons />
       </div>
     </NavContainer>
   );
@@ -38,68 +53,63 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  .nav__center {
+  background: var(--clr-black);
+  .nav-center {
     width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
   }
-
-  .nav__header {
+  .nav-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    img {
-      width: 50px;
-      margin-left: -15px;
-      height: 50px;
+    img { 
+      height: 80px;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      z-index: 99999;
+      padding-top: 1rem;
+      padding-right: 3rem;
+      max-width: 100%;
+      @media (max-width: 492px) {
+        height: 60px;
+        padding-right: 0;
+      }
     }
   }
-
-  .nav__toggle {
+  .nav-toggle {
       background: transparent;
       border: transparent;
       color: var(--clr-primary-5);
       cursor: pointer;
   }
-
-  .nav__links {
+  .nav-links {
       display: none;
   }
-
-  .cart-btn-wrapper {
-      display: none;
-  }
-
   @media (min-width: 992px) {
-      .nav__toggle {
+      .nav-toggle {
           display: none;
       }
-      .nav__center {
+      .nav-center {
           display: grid;
           grid-template-columns: auto 1fr auto;
           align-items: center;
           -webkit-align-items: center;
       }
-
-      .nav__links {
+      .nav-links {
           display: flex;
-          justify-content: center;
-
-          li {
-              margin: 0 0.5rem;
-          }
-
+          justify-content: flex-end;
           a {
               color: var(--clr-grey-3);
-              font-size: 1rem;
+              font-size: 1.3rem;
               text-transform: capitalize;
               letter-spacing: var:(--spacing);
-              padding: 0.5rem;
-
+              padding: 1.5rem;
+              padding-bottom: 1.5rem;
+              transition: var(--transition);
+              
               &:hover {
-                  border-bottom: 2px solid var(--clr-primary-7);
+                  border-bottom: 2px solid var(--clr-primary-4);
               }
           }
       }
