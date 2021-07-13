@@ -56,7 +56,7 @@ const Wrapper = styled.section`
     max-width: 45em;
     margin-bottom: 2rem;
     color: var(--clr-grey-5);
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
   h1 {
     margin-bottom: 2rem;

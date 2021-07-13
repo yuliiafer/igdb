@@ -23,15 +23,13 @@ const Wrapper = styled.footer`
   text-align: center;
   span {
     color: var(--clr-primary-5);
-    margin: 0.5rem;
   }
   h6 {
     color: var(--clr-white);
     font-weight: 400;
     font-size: 0.9rem;
     text-transform: none;
-    line-height: 1.25;
-    line-height: 1.5rem;
+    line-height: 1.5;
   }
   @media (min-width: 776px) {
     flex-direction: row;

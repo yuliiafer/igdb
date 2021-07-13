@@ -20,7 +20,7 @@ const Wrapper = styled.section`
     grid-template-columns: repeat(2, 1fr);
   }
   img {
-    height: 150px;
+    height: 250px;
     max-width: 100%;
   }
   .products-container {

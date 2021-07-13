@@ -22,7 +22,7 @@ const Filters = () => {
   const companies = GetUniqueValues(all_products, "company");
 
   return (
-    <Wrapper className="page-404">
+    <Wrapper className="filter">
       <div className="content">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="form-control">
@@ -105,6 +105,7 @@ const Filters = () => {
 };
 
 const Wrapper = styled.section`
+  padding: 1rem 0;
   .form-control {
     margin-bottom: 1.25rem;
     h5 {
@@ -180,6 +181,9 @@ const Wrapper = styled.section`
     .content {
       position: sticky;
       top: 1rem;
+    }
+    .filter {
+      min-height: calc(100vh - (20vh + 10rem));
     }
   }
 `;
