@@ -200,6 +200,9 @@ const Wrapper = styled.section`
   h5 {
     color: var(--clr-primary-5);
   }
+  h4 {
+    text-transform: none;
+  }
   button {
     background: var(--clr-primary-5);
     font-family: Arial, sans-serif;
