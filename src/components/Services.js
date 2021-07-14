@@ -66,8 +66,6 @@ const Wrapper = styled.section`
     text-align: center;
     padding: 1rem 2rem 2rem 2rem;
     border-radius: var(--radius);
-    clip-path: polygon(0 0, 100% 0, 100% 30vh, 50% 100%, 0 30vh);
-
     p {
       color: var(--clr-primary-2);
       text-align: left;

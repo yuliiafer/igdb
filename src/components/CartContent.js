@@ -18,14 +18,14 @@ const CartContent = () => {
       <div className="link-container">
         <Link to="/products" className="link-btn">
           <VscArrowLeft />
-          continue shopping
+          buy more
         </Link>
         <button
           type="button"
           className="link-btn clear-btn"
           onClick={clearCart}
         >
-          clear shopping cart
+          clear cart
           <VscClose size="1.5em" />
         </button>
       </div>

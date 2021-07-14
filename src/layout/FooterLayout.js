@@ -14,7 +14,7 @@ const FooterLayout = () => {
 };
 
 const Wrapper = styled.footer`
-  height: 5rem;
+  height: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,6 +23,7 @@ const Wrapper = styled.footer`
   text-align: center;
   span {
     color: var(--clr-primary-5);
+    margin-left: .5rem;
   }
   h6 {
     color: var(--clr-white);
@@ -30,6 +31,9 @@ const Wrapper = styled.footer`
     font-size: 0.9rem;
     text-transform: none;
     line-height: 1.5;
+    &:first-child {
+    margin-right: .5rem;
+  }
   }
   @media (min-width: 776px) {
     flex-direction: row;

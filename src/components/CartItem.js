@@ -43,7 +43,7 @@ const Wrapper = styled.article`
     display: none;
   }
   display: grid;
-  grid-template-columns: 200px auto auto;
+  grid-template-columns: auto auto auto;
   grid-template-rows: 75px;
   gap: 3rem 1rem;
   justify-items: center;
@@ -148,9 +148,9 @@ const Wrapper = styled.article`
   }
   @media (max-width: 450px) {
     display: grid;
-    grid-template-columns: 120px auto auto;
+    grid-template-columns: auto auto auto;
     grid-template-rows: 75px;
-    gap: 0.5rem 0.5rem;
+    gap: 0.5rem;
     justify-items: center;
     margin-bottom: 3rem;
     align-items: center;
@@ -161,9 +161,6 @@ const Wrapper = styled.article`
       align-items: center;
       text-align: left;
       gap: 0.1rem;
-    }
-    h2 {
-      font-size: 1.2rem;
     }
   }
 `;
