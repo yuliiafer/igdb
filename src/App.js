@@ -39,7 +39,7 @@ const App = () => {
           <PrivateRoute exact path="/checkout">
             <Checkout />
           </PrivateRoute>
-          <Route component={Error}>
+          <Route path="*">
             <Error />
           </Route>
         </Switch>

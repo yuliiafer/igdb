@@ -212,8 +212,22 @@ p {
 .page-404 {
   min-height: calc(100vh - 11rem);
   padding: 5rem 0;
+  display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
 }
 
+.img-404 {
+  height: 10rem;
+}
+.h1-404 {
+  font-size: 8rem;
+}
+.h3-404 {
+  text-transform: none;
+  margin-bottom: 2rem;
+}
 .page {
   min-height: calc(100vh - (20vh + 10rem));
 }
