@@ -68,6 +68,7 @@ const CheckoutForm = () => {
     ev.preventDefault();
     setProcessing(true);
     const cardElement = elements.getElement(CardElement);
+    console.log(cardElement);
     const {error, paymentMethod} = await stripe.createPaymentMethod(clientSecret, {
         type: 'card',
         card: elements.getElement(CardElement),
