@@ -1,0 +1,39 @@
+.page-404 {
+  min-height: calc(100vh - 11rem);
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.img-404 {
+  height: 10rem;
+}
+.h1-404 {
+  font-size: 8rem;
+}
+.h3-404 {
+  text-transform: none;
+  margin-bottom: 2rem;
+}
+.btn {
+    text-transform: uppercase;
+    background: #a3d3ff;
+    color: #fff;
+    padding: 0.375rem 0.75rem;
+    letter-spacing: 0.1rem;
+    display: inline-block;
+    font-weight: 400;
+    transition: all 0.3s linear;
+    font-size: 0.875rem;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+    border-color: transparent;
+  }
+  
+  .btn:hover {
+    color: #00fff5;
+    background: #061328;
+  }
