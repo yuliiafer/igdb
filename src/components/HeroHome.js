@@ -8,6 +8,7 @@ import { SliderData } from "./SliderData";
 const HeroHome = () => {
   const { myUser } = useUserContext();
   const { loginWithRedirect } = useUserContext();
+  
   return (
     <Background>
       <Wrapper className="section-center">

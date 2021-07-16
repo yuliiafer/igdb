@@ -28,11 +28,17 @@ const CartIcons = () => {
             logout({ returnTo: window.location.origin });
           }}
         >
-          <ImUserMinus />
+          <div className="icon">
+            <span className="text">Log out</span>
+            <ImUserMinus />
+          </div>
         </button>
       ) : (
         <button type="button" className="auth-btn" onClick={loginWithRedirect}>
-          <ImUserPlus />
+          <div className="icon">
+            <span className="text">Log in</span>
+            <ImUserPlus />
+          </div>
         </button>
       )}
     </Wrapper>
@@ -49,12 +55,12 @@ const Wrapper = styled.div`
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     .cart-container {
       display: flex;
       align-items: center;
       position: relative;
-      justify-content: center; 
+      justify-content: center;
       svg {
         height: 1.6rem;
         margin-left: 5px;
@@ -73,6 +79,22 @@ const Wrapper = styled.div`
       }
     }
   }
+  .text {
+    visibility: hidden;
+    width: 100px;
+    background-color: transparent;
+    color: var(--clr-primary-6);
+    border: 1px solid var(--clr-grey-4);
+    font-size: 14px;
+    text-align: center;
+    border-radius: var(--radius);
+    padding: 5px;
+    position: absolute;
+    margin: 2rem 0 0 0rem;
+  }
+  .auth-btn:hover .text {
+    visibility: visible;
+  }
   .auth-btn {
     display: flex;
     align-items: center;
@@ -81,13 +103,21 @@ const Wrapper = styled.div`
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--clr-grey-5);
-    justify-content: center; 
+    justify-content: center;
+    padding-top: 0.8rem;
     svg {
       margin-left: 5px;
     }
   }
   @media (max-width: 550px) {
     width: 100px;
+    .text {
+      width: 80px;
+      font-size: 12px;
+      padding: 5px;
+      position: absolute;
+      margin: 2rem 0 0 0rem;
+    }
     .cart-btn {
       .cart-container {
         .cart-value {
@@ -102,6 +132,8 @@ const Wrapper = styled.div`
           font-size: 0.55rem;
           padding: 2px;
         }
+      }
+    }
   }
 `;
 

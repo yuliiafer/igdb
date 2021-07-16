@@ -35,6 +35,9 @@ const Product = ({ name, price, stock, stars, reviews, id, image }) => {
           }}
         />
       )}
+            {stock < 0 && (
+      <p>no</p>
+      )}
       <hr></hr>
     </Wrapper>
   );

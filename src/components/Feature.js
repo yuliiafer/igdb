@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Games from "./Games";
+import { useUserContext } from "../context/user_context";
 
 const Feature = () => {
+  const { myUser } = useUserContext();
+  const { loginWithRedirect } = useUserContext();
+
   return (
     <Wrapper className="section">
       <div className="title">
@@ -12,9 +16,19 @@ const Feature = () => {
       <div className="section-center featured">
         <Games />
       </div>
-      <Link to="/products" className="btn">
-        all games
-      </Link>
+      {myUser ? (
+        <Link to="/products" className="btn">
+          all games
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className="btn hero-btn"
+          onClick={loginWithRedirect}
+        >
+          Log in
+        </button>
+      )}
     </Wrapper>
   );
 };
